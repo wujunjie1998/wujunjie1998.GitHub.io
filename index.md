@@ -1,6 +1,6 @@
 ## About
 
-I am a junior student in Sun Yat-sen University, majoring in statistics in the [School of Mathematics](http://math.sysu.edu.cn). Currently I am working in the University of Michigan as a research assistant under Professor [David Jurgens](http://jurgens.people.si.umich.edu)'s supervision.
+I am a junior student of [School of Mathematics](http://math.sysu.edu.cn) in the Sun Yat-sen University. Currently I am working in the University of Michigan as a research assistant under Professor [David Jurgens](http://jurgens.people.si.umich.edu)'s supervision. Before that, I had some wonderful research experiences 
 
 
 
