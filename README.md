@@ -1,2 +1,2 @@
-# jiaxin_pei.github.io
-Repository for Jiaxin Pei's academic research website.
+# wujunjie1998.github.io
+Repository for Junjie Wu's academic research website.
