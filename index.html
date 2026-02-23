@@ -1,81 +1,290 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Junjie Wu</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
 
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <style>
+      /* ======== 全局极简字体与重置 ======== */
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: #333; line-height: 1.6; background-color: #fff; margin: 0; padding: 0; font-size: 15px;
+      }
+      a { color: #0366d6; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      
+      .wrapper { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
-      ga('create', 'UA-139918918-1', 'auto');
-      ga('send', 'pageview');
-    </script>
+      /* ======== 顶部导航栏 ======== */
+      .top-nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+      .nav-logo { font-size: 18px; color: #888; text-decoration: none; }
+      .nav-logo:hover { text-decoration: none; }
+      .nav-links { display: flex; gap: 25px; }
+      .nav-links a { color: #666; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+      .nav-links a:hover { color: #333; text-decoration: none; }
 
-    <!-- For all browsers -->
-    <link rel="stylesheet" href="assets/css/academicons.min.css"/>
-    <link rel="stylesheet" href="assets/css/academicons.css"/>
+      /* ======== 首屏 Hero 区域 (重点修改照片比例) ======== */
+      .hero-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 50px;
+        margin-bottom: 60px;
+        gap: 50px; /* 增加左右间距，让排版更透气 */
+      }
+      .hero-text {
+        flex: 1; 
+      }
+      .hero-title {
+        font-size: 32px; font-weight: 500; color: #222; margin-top: 0; margin-bottom: 20px;
+      }
+      
+      /* 修改照片容器：占据约 30% 宽度，高度自动拉伸至与文字匹配的 3:4 比例 */
+      .hero-image {
+        flex: 0 0 30%; 
+        max-width: 280px; 
+      }
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 4; /* 强制锁定竖版长方形比例 */
+        object-fit: cover; /* 保证照片不变形，自动裁切多余部分 */
+        border-radius: 2px;
+      }
 
+      .contact-links { margin: 15px 0; font-size: 14px; }
+
+      /* ======== 内容板块 ======== */
+      .section-block { margin-bottom: 50px; padding-top: 20px; }
+      .section-title { font-size: 24px; font-weight: 500; color: #222; margin-bottom: 20px; }
+      
+      .compact-list { list-style-type: disc; padding-left: 20px; margin: 0; }
+      .compact-list li { margin-bottom: 8px; }
+
+      /* ======== 论文列表样式 ======== */
+      .pub-category { font-size: 16px; font-weight: 600; margin-top: 25px; margin-bottom: 10px; }
+      .pub-item { margin-bottom: 15px; line-height: 1.5; }
+      .pub-title { font-weight: 600; color: #0366d6; }
+      
+      button.accordion { font: 14px/1.5 inherit; cursor: pointer; padding: 0; border: none; background: none; color: #0366d6; outline: none; }
+      button.accordion:hover { text-decoration: underline; }
+      div.panel { padding: 10px 15px; margin-top: 5px; display: none; background-color: #f9f9f9; color: #555; font-size: 14px; border-left: 3px solid #ddd; }
+      div.panel.show { display: block !important; }
+    </style>
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Junjie Wu</h1>
-        <p>Ph.D. candidate at HKUST</p>
-    <h3><p class="view"><a href="https://wujunjie1998.github.io/">Home</a></p></h3>
-        <h3><p class="view"><a href="https://wujunjie1998.github.io/publication1.html">Publication</a></p></h3>
-        <h3><p class="view"><a href="https://wujunjie1998.github.io/experience.html">Experience</a></p></h3>
-        <h3><p class="view"><a href="https://wujunjie1998.github.io/personal.html">Personal</a></p></h3>
-        <h3><p class="view"><a href="Junjie_Wu_s_CV.pdf">CV</a></p></h3>
-    <p class="view"><b>Social:</b><br>
-        <a href="mailto:junjie.wu@connect.ust.hk" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a><br>
-        <a href="https://scholar.google.com.hk/citations?hl=zh-CN&pli=1&user=BuV0LxwAAAAJ" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Google Scholar</a><br>
-        <a href="https://www.linkedin.com/in/junjie-wu-875764180/" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Linkedin</a><br>
-        
-    <p><b>Contact:</b><br>junjie.wu@connect.ust.hk</p>
-        
-    <p><b>Acknowledgement:</b><br>Codes for this website are borrowed from <a href="https://chrisjuniorli.github.io/">Jiachen Li</a>.
-        
-      </header>
-      <section>
-  <h3>
-    <img src="Photo.JPG" alt="Profile Photo" width="400" height="400">
-  </h3>
-  
-  <p>
-    I am a final-year Ph.D. candidate at 
-    <a href="http://www.ust.hk/">The Hong Kong University of Science and Technology</a>, 
-    supervised by <a href="https://sites.google.com/view/dyyeung/home">Prof. Dit-Yan Yeung</a>. 
-    Currently, I am a Research Scientist Intern at GenAI, Meta, working with 
-    <a href="https://www.linkedin.com/in/kaitai-zhang-usc/"> Dr. Kaitai Zhang</a>. 
-    Before that, I was a visiting Ph.D. student at 
-    <a href="https://yale-nlp.github.io/">Yale NLP Lab</a>, advised by 
-    <a href="https://armancohan.com/">Prof. Arman Cohan</a>.
-    I also collaborate closely with 
-    <a href="https://sites.google.com/site/moyunlp/">Dr. Mo Yu</a> and 
-    <a href="https://lemaoliu.github.io/">Dr. Lemao Liu</a> at WeChat AI.
-  </p>
 
-  <p>
-    My research interests lie in natural language processing, with a current focus on 
-    evaluating large language models’ capabilities and enhancing them through 
-    robust post-training techniques.
-  </p>
-</section>
+    <div class="wrapper">
+      <nav class="top-nav">
+        <a href="#home" class="nav-logo">Junjie Wu</a>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#research">Research</a>
+          <a href="#experience">Education</a>
+          <a href="#publications">Publications</a>
+        </div>
+      </nav>
+
+      <div id="home" class="hero-section">
+  <div class="hero-text">
+    <h1 class="hero-title">
+      Junjie Wu 
+      <span style="font-size: 26px; font-weight: 400; color: #666; margin-left: 12px;">伍君杰</span>
+    </h1>
+    
+    <p>👋 Hi!</p>
+    
+    <p>
+      I am a final-year Ph.D. candidate at The Hong Kong University of Science and Technology (HKUST), 
+      supervised by <a href="https://sites.google.com/view/dyyeung/home" target="_blank">Prof. Dit-Yan Yeung</a>. 
+    </p>
+
+    <p>
+      Previously, I was a Research Scientist Intern at GenAI, Meta, working with 
+      <a href="https://www.linkedin.com/in/kaitai-zhang-usc/" target="_blank">Kaitai Zhang</a>,
+      <a href="https://kanxuan.live/" target="_blank">Xuan Kan</a>,
+      <a href="https://zihaohe123.github.io/" target="_blank">Zihao He</a>, and 
+      <a href="https://www.linkedin.com/in/shunwen-tan/" target="_blank">Shunwen Tan</a>. 
+      Before that, I was a visiting Ph.D. student at Yale University, advised by 
+      <a href="https://armancohan.com/" target="_blank">Prof. Arman Cohan</a>.
+      During my Ph.D. study, I have also been fortunate to collaborate closely with 
+      <a href="https://sites.google.com/site/moyunlp/" target="_blank">Mo Yu</a> and 
+      <a href="https://lemaoliu.github.io/" target="_blank">Lemao Liu</a> at WeChat AI and Tencent AI Lab, Tencent.
+    </p>
+    
+    <div class="contact-links" style="margin-top: 20px;">
+      <a href="mailto:junjie.wu@connect.ust.hk" target="_blank">Email</a> / 
+      <a href="https://scholar.google.com.hk/citations?hl=zh-CN&pli=1&user=BuV0LxwAAAAJ" target="_blank">Google Scholar</a> / 
+      <a href="https://www.linkedin.com/in/junjie-wu-875764180/" target="_blank">LinkedIn</a> /
+      <a href="Junjie_Wu_CV.pdf" target="_blank">CV</a>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
+  </div>
+        <div class="hero-image">
+          <img src="Photo.JPG" alt="Junjie Wu">
+        </div>
+      </div>
+
+<div id="news" class="section-block">
+        <h2 class="section-title">News</h2>
+        <ul class="compact-list">
+          <li><strong>[2025.07]</strong> 🎉 One paper on Hallucination Evaluation for MLLMs accepted to <strong>TMLR 2025</strong>.</li>
+          <li><strong>[2025.06]</strong> 💼 Started my journey as a Research Scientist Intern at <strong>Meta</strong>.</li>
+          <li><strong>[2025.05]</strong> 🎉 One paper on the long context referencing capabilities of LLMs accepted to <strong>ACL 2025</strong>.</li>
+          <li><strong>[2025.01]</strong> 🔥 Two papers on the intelligence of LLMs accepted to <strong>NAACL 2025 (Oral)</strong>.</li>
+        </ul>
+      </div>
+
+      <div id="research" class="section-block">
+        <h2 class="section-title">Research</h2>
+        <p>
+          My current research interests lie in building more intelligent and reliable large (language/vision) models. 
+        </p>
+        <p style="margin-top: 15px; margin-bottom: 10px;">Specifically, here are some topics I currently focus on:</p>
+        <ul class="compact-list">
+          <li><strong>Intelligence of Large (langauge/vision) Model:</strong> [<a href="https://arxiv.org/abs/2502.07190" target="_blank">NAACL'25 (1)</a>, <a href="https://arxiv.org/abs/2502.08946" target="_blank">NAACL'25 (2)</a>]</li>
+          <li><strong>Long-Context Understanding Capability Investigation:</strong> [<a href="https://arxiv.org/abs/2507.09506" target="_blank">ACL'25</a>, <a href="https://arxiv.org/abs/2508.01959" target="_blank">Preprint (1)</a>, <a href="https://arxiv.org/abs/2512.17220" target="_blank">Preprint (2)</a>]</li>
+          <li><strong>Post-training & Reward Modeling of Large Models.
+        </ul>
+      </div>
+
+
+      <div id="experience" class="section-block">
+        <h2 class="section-title">Education / Experience</h2>
+        <ul class="compact-list">
+          <li><strong>2020/09 - Present:</strong> Ph.D. Candidate at HKUST</li>
+          <li><strong>2025/06 - 2026/01:</strong> Research Scientist Intern at GenAI, Meta</li>
+          <li><strong>2024/09 - 2025/02:</strong> Visiting Ph.D. Student at Yale NLP, Yale University</li>
+          <li><strong>2024/05 - 2025/05:</strong> Research Intern at WeChat AI, Tencent</li>
+          <li><strong>2021/06 - 2024/01:</strong> Research Intern at NLP Group, Tencent AI Lab</li>
+          <li><strong>2016/09 - 2020/06:</strong> B.S. in Statistics, Sun Yat-sen University (GPA: 3.8/4.0)</li>
+          <li><strong>2019/07 - 2019/10:</strong> Visiting Student at the University of Michigan, Ann Arbor</li>
+        </ul>
+      </div>
+
+      <div id="publications" class="section-block">
+        <h2 class="section-title">Publications (* Equal contribution)</h2>
+        
+        <div class="pub-category">Preprints</div>
+
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2512.17220" target="_blank">Mindscape-Aware Retrieval Augmented Generation for Improved Long Context Understanding</a><br>
+          <i>Yuqing Li, Jiangnan Li, Zheng Lin, Ziyan Zhou, <b>Junjie Wu</b>, Weiping Wang, Jie Zhou, and Mo Yu</i><br>
+          [<a href="https://arxiv.org/abs/2512.17220" target="_blank">Paper</a>] 
+         <!-- [<a href="https://huggingface.co/SituatedEmbedding" target="_blank">Model</a>] -->
+          <!--[<a href="#">Code</a>]-->
+        </div>
+        
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2508.01959" target="_blank">SitEmb-v1.5: Improved Context-Aware Dense Retrieval for Semantic Association and Long Story Comprehension</a><br>
+          <i><b>Junjie Wu</b>, Jiangnan Li, Yuqing Li, Lemao Liu, Liyan Xu, Jiwei Li, Dit-Yan Yeung, Jie Zhou, and Mo Yu</i><br>
+          [<a href="https://arxiv.org/abs/2508.01959" target="_blank">Paper</a>] 
+          [<a href="https://huggingface.co/SituatedEmbedding" target="_blank">Model</a>] 
+          <!--[<a href="#">Code</a>]-->
+        </div>
+
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2307.01488">SCAT: Robust Self-supervised Contrastive Learning via Adversarial Training for Text Classification</a><br>
+          <i><b>Junjie Wu</b> and Dit-Yan Yeung</i><br>
+          [<a href="https://arxiv.org/abs/2307.01488">Paper</a>] 
+          <!--[<a href="#">Code</a>]-->
+        </div>
+
+        <div class="pub-category">Accepted</div>
+
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2507.09506" target="_blank">Ref-Long: Benchmarking the Long-context Referencing Capability of Long-context Language Models</a><br>
+          <i><b>Junjie Wu*</b>, Gefei Gu*, Yanan Zheng, Dit-Yan Yeung, and Arman Cohan</i><br>
+          ACL 2025<br>
+          [<a href="https://arxiv.org/abs/2507.09506" target="_blank">Paper</a>] 
+          [<a href="https://wujunjie1998.github.io/Ref-Long-website/" target="_blank">Project</a>] 
+          [<a href="https://github.com/wujunjie1998/Ref-Long/tree/main" target="_blank">Code</a>]
+        </div>
+
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2502.07190" target="_blank">Understanding LLMs' Fluid Intelligence Deﬁciency: An Analysis of the ARC Task</a><br>
+          <i><b>Junjie Wu</b>, Mo Yu, Lemao Liu, Dit-Yan Yeung, and Jie Zhou</i><br>
+          NAACL 2025 (Oral)<br>
+          [<a href="https://arxiv.org/abs/2502.07190" target="_blank">Paper</a>] 
+          [<a href="https://wujunjie1998.github.io/araoc-benchmark.github.io/" target="_blank">Project</a>] 
+          [<a href="https://github.com/wujunjie1998/LLM-Fluid-Intelligence" target="_blank">Code</a>]
+        </div>
+
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2502.08946" target="_blank">The Stochastic Parrot on LLM’s Shoulder: A Summative Assessment of Physical Concept Understanding</a><br>
+          <i>Mo Yu*, Lemao Liu*, <b>Junjie Wu*</b>, Tsz Ting Chung*, Shunchi Zhang*, Jiangnan Li, Dit-Yan Yeung, and Jie Zhou</i><br>
+          NAACL 2025 (Oral)<br>
+          [<a href="https://arxiv.org/abs/2502.08946" target="_blank">Paper</a>] 
+          [<a href="https://physico-benchmark.github.io/" target="_blank">Project</a>] 
+          [<a href="https://github.com/physico-benchmark/physico" target="_blank">Code</a>]
+        </div>
+        
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2410.23114" target="_blank">Uniﬁed Triplet-Level Hallucination Evaluation for Large Vision-Language Models</a><br>
+          <i><b>Junjie Wu*</b>, Tsz Ting Chung*, Kai Chen*, and Dit-Yan Yeung</i><br>
+          TMLR 2025<br>
+          [<a href="https://arxiv.org/abs/2410.23114" target="_blank">Paper</a>] 
+          [<a href="https://kaichen1998.github.io/projects/tri-he/" target="_blank">Project</a>] 
+          [<a href="https://github.com/wujunjie1998/Tri-HE" target="_blank">Code</a>]
+        </div>
+
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2407.05319" target="_blank">Rethinking Targeted Adversarial Attacks for Neural Machine Translation</a><br>
+          <i><b>Junjie Wu</b>, Lemao Liu, Wei Bi, and Dit-Yan Yeung</i><br>
+          ICASSP 2024<br>
+          [<a href="https://arxiv.org/abs/2407.05319" target="_blank">Paper</a>] 
+          [<a href="https://github.com/wujunjie1998/TWGA" target="_blank">Code</a>]
+        </div>
+
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2310.13362" target="_blank">Towards General Error Diagnosis via Behavioral Testing in Machine Translation</a><br>
+          <i><b>Junjie Wu</b>, Lemao Liu, and Dit-Yan Yeung</i><br>
+          EMNLP 2023 (Presented at the <a href="https://genbench.org/workshop/2023/" target="_blank">GenBench Workshop @EMNLP 2023</a>)<br>
+          [<a href="https://arxiv.org/abs/2310.13362" target="_blank">Paper</a>] 
+          [<a href="https://github.com/wujunjie1998/BTPGBT" target="_blank">Code</a>]
+        </div>
+
+        <div class="pub-item">
+          <a class="pub-title" href="https://arxiv.org/abs/2102.08368#" target="_blank">Conversations Gone Alright: Quantifying and Predicting Prosocial Outcomes in Online Conversations</a><br>
+          <i>Jiajun Bao*, <b>Junjie Wu*</b>, Yiming Zhang*, Eshwar Chandrasekharan, and David Jurgens</i><br>
+          The Web Conference 2021<br>
+          [<a href="https://arxiv.org/abs/2102.08368#" target="_blank">Paper</a>] 
+          [<a href="https://github.com/davidjurgens/prosocial-conversation-forecasting" target="_blank">Code</a>]
+        </div>
+
+        <div class="pub-item">
+          <a class="pub-title" href="https://aclanthology.org/2021.deelio-1.4/" target="_blank">Augmenting Topic-Aware Knowledge-Grounded Conversations with Dynamic Built Knowledge Graphs</a><br>
+          <i><b>Junjie Wu</b> and Hao Zhou</i><br>
+          DeeLIO Workshop @ NAACL 2021<br>
+          [<a href="https://aclanthology.org/2021.deelio-1.4/" target="_blank">Paper</a>]
+          <div>
+      </div>
+
+      <div id="personal" class="section-block">
+        <h2 class="section-title">Personal</h2>
+        <p>I am a big fan of basketball and bodybuilding and I was the captain of our school's basketball team during 2017 to 2019.</p>
+        <p>My favorite player is Russell Westbrook!</p>
+        <p>Also, I really enjoy making friends! Don't hesitate to reach out if interested.</p>
+      </div>
+
+      <footer style="text-align: center; padding: 40px 0; color: #888; font-size: 13px;">
+        <p>Last updated: Feb 2026. Hosted on GitHub Pages.</p>
+      </footer>
+    </div>
+
+    <script> 
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+      for (i = 0; i < acc.length; i++) {
+          acc[i].onclick = function(){
+              this.classList.toggle("active");
+              this.parentNode.nextElementSibling.classList.toggle("show");
+        }
+      }
+    </script>
   </body>
 </html>
-
