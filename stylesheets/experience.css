@@ -1,0 +1,156 @@
+/* Education and experience: primary milestones with nested research visits. */
+.experience-timeline {
+  --timeline-accent: #bc3b12;
+  --timeline-year: 44px;
+  --timeline-date: 166px;
+  --timeline-marker: 18px;
+  --timeline-gap: 18px;
+  --timeline-axis: calc(var(--timeline-year) + var(--timeline-date) + 2 * var(--timeline-gap) + var(--timeline-marker) / 2);
+  position: relative;
+  isolation: isolate;
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 8px 0 16px;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--timeline-axis) - 2px);
+  width: 4px;
+  background: linear-gradient(to bottom, transparent, var(--timeline-accent) 28px, var(--timeline-accent) calc(100% - 28px), transparent);
+}
+
+.timeline-group + .timeline-group { margin-top: 40px; }
+
+.timeline-row {
+  display: grid;
+  grid-template-columns: var(--timeline-year) var(--timeline-date) var(--timeline-marker) minmax(0, 1fr);
+  column-gap: var(--timeline-gap);
+  align-items: start;
+}
+
+.timeline-year {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 16px;
+  color: #9898a3;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+.timeline-year::after {
+  content: "";
+  width: 14px;
+  flex: 0 0 14px;
+  border-top: 1px dashed #dcdce2;
+}
+
+.timeline-date {
+  grid-column: 2;
+  margin-top: 13px;
+  color: var(--timeline-accent);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.7;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-marker {
+  grid-column: 3;
+  box-sizing: border-box;
+  width: var(--timeline-marker);
+  height: var(--timeline-marker);
+  margin-top: 17px;
+  border: 4px solid var(--timeline-accent);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.timeline-group--current .timeline-marker { background: #f7cf45; }
+.timeline-content { grid-column: 4; min-width: 0; }
+
+.institution-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid #ececee;
+  border-radius: 9px;
+  background: #f8f8f9;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 16%);
+  color: #242424;
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.institution-logo {
+  display: block;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* Show the symbols from the supplied wordmarks without altering the originals. */
+.brand-symbol { position: relative; overflow: hidden; border-radius: 50%; }
+.brand-symbol img { position: absolute; display: block; max-width: none; height: auto; }
+.brand-symbol--hunyuan img { width: 558.8235%; left: -11.7647%; top: -21.3235%; }
+.brand-symbol--ailab img { width: 266.6667%; left: 0; top: 0; }
+
+a.institution-badge:hover { color: #0366d6; border-color: #d4dbe5; text-decoration: none; }
+a.institution-badge:focus-visible { outline: 2px solid #0366d6; outline-offset: 4px; }
+
+.timeline-description {
+  margin: 10px 0 0;
+  color: #656571;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.timeline-description a { color: inherit; }
+.timeline-description a:hover { color: #0366d6; }
+.timeline-secondary { color: #858590; }
+.timeline-details { list-style: none; margin: 22px 0 0; padding: 0; }
+.timeline-details > li + li { margin-top: 22px; }
+.timeline-details .timeline-date { margin-top: 7px; color: #656571; font-size: 14px; font-weight: 400; }
+.timeline-details .timeline-content { padding-left: 20px; border-left: 3px dashed #e1e1e6; }
+.timeline-details .institution-badge { gap: 10px; padding: 7px 12px; font-size: 16px; border-radius: 8px; }
+.timeline-details .institution-logo { flex-basis: 25px; width: 25px; height: 25px; }
+.timeline-details .timeline-description { margin-top: 9px; font-size: 14px; }
+
+@media (max-width: 760px) {
+  .experience-timeline { --timeline-year: 0px; --timeline-date: 150px; --timeline-gap: 14px; }
+  .timeline-year { visibility: hidden; }
+  .institution-badge { font-size: 17px; }
+  .timeline-details .timeline-content { padding-left: 15px; }
+}
+
+@media (max-width: 580px) {
+  .experience-timeline { --timeline-marker: 16px; --timeline-gap: 16px; --timeline-axis: 8px; margin-top: 24px; }
+  .timeline-row { grid-template-columns: var(--timeline-marker) minmax(0, 1fr); row-gap: 10px; }
+  .timeline-year { display: none; }
+  .timeline-date { grid-column: 2; grid-row: 1; margin-top: 0; text-align: left; font-size: 14px; }
+  .timeline-marker { grid-column: 1; grid-row: 1 / span 2; margin-top: 4px; }
+  .timeline-content { grid-column: 2; grid-row: 2; }
+  .institution-badge { gap: 10px; padding: 9px 11px; font-size: 16px; }
+  .institution-logo { flex-basis: 27px; width: 27px; height: 27px; }
+  .timeline-description { font-size: 14px; }
+  .timeline-group + .timeline-group { margin-top: 34px; }
+  .timeline-details { margin-top: 22px; }
+  .timeline-details .timeline-row { row-gap: 7px; }
+  .timeline-details .timeline-date { margin: 0; padding-left: 18px; font-size: 13px; }
+  .timeline-details .institution-badge { font-size: 15px; }
+  .timeline-details .timeline-description { font-size: 13px; }
+}
